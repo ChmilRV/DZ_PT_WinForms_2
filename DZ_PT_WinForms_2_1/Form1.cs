@@ -58,9 +58,9 @@ namespace DZ_PT_WinForms_2_1
 
         private void richTextBox1_VScroll(object sender, EventArgs e)
         {
+            //label2.Text = e.ToString();
 
-
-            //MessageBox.Show(richTextBox1.ScrollBars.ToString());
+            MessageBox.Show(e.ToString());
 
 
         }
