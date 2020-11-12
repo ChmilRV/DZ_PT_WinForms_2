@@ -16,5 +16,23 @@ namespace DZ_PT_WinForms_2_2
         {
             InitializeComponent();
         }
+
+        private void button_AddUser_Click(object sender, EventArgs e)
+        {
+
+
+
+
+        }
+
+        private void редактироватьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
