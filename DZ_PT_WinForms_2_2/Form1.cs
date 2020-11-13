@@ -77,5 +77,37 @@ namespace DZ_PT_WinForms_2_2
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
         }
+
+
+        /*
+         static void WriteFile(string path)
+        {
+            using (StreamWriter sw = File.CreateText(path))
+            {
+                Console.WriteLine("Enter the data to write to the file:");
+                string writeText = Console.ReadLine();
+                sw.WriteLine(writeText);
+                foreach (var item in writeText)
+                {
+                    sw.Write($"{item} ");
+                }
+                Console.WriteLine("\nData recorded!");
+            }
+        }
+        static string ReadFile(string path)
+        {
+            using (StreamReader sr = File.OpenText(path))
+            {
+                return sr.ReadToEnd();
+            }
+        }
+         
+         
+         */
+
+
+
+
+
     }
 }
