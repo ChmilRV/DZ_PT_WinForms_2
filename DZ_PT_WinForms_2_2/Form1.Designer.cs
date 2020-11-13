@@ -217,7 +217,7 @@
             this.toolStripStatusLabel_Time,
             this.toolStripStatusLabel_Space,
             this.toolStripStatusLabel_mail});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 381);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 269);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.statusStrip1.ShowItemToolTips = true;
@@ -320,7 +320,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 403);
+            this.ClientSize = new System.Drawing.Size(584, 291);
             this.ContextMenuStrip = this.contextMenuStrip_About;
             this.Controls.Add(this.groupBox_Export);
             this.Controls.Add(this.statusStrip1);
