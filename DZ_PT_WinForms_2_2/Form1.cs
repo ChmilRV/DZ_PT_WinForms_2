@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace DZ_PT_WinForms_2_2
 {
     public partial class Form1 : Form
@@ -16,7 +15,6 @@ namespace DZ_PT_WinForms_2_2
         {
             InitializeComponent();
         }
-
         private void button_AddUser_Click(object sender, EventArgs e)
         {
             String userFullInfo = String.Empty;
@@ -37,16 +35,8 @@ namespace DZ_PT_WinForms_2_2
             textBox_Email.Text = string.Empty;
             textBox_PhoneNumber.Text = string.Empty;
         }
-
-        
-
         private void Edit_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //textBox_Surname.Text = string.Empty;
-            //textBox_Name.Text = string.Empty;
-            //textBox_Email.Text = string.Empty;
-            //textBox_PhoneNumber.Text = string.Empty;
-
             if (this.listBox_UserInfo.Items.Count != 0)
             {
                 if (this.listBox_UserInfo.SelectedItem != null)
@@ -57,25 +47,9 @@ namespace DZ_PT_WinForms_2_2
                     textBox_Email.Text = userFullInfo.Substring(userFullInfo.IndexOf(',') + 2, userFullInfo.LastIndexOf(',') - userFullInfo.IndexOf(',') - 2);
                     textBox_PhoneNumber.Text =userFullInfo.Substring(userFullInfo.LastIndexOf(',') + 2);
                     listBox_UserInfo.Items.Remove(userFullInfo);
-
-
                 }
             }
-
-
-            
-
-
-
-
-
-
-
         }
-
-
-
-
         private void Delete_ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (this.listBox_UserInfo.Items.Count != 0)
@@ -89,32 +63,19 @@ namespace DZ_PT_WinForms_2_2
                     }
                 }
             }
-
-
-
         }
-
-
         private void contextMenuStrip_About_Click(object sender, EventArgs e)
         {
             contextMenuStrip_About.Visible = false;
-
             MessageBox.Show("Приложение – анкета.\n" +
-                "Кнопка «Add» добавляет пользователя в окно хранения информации.\n" +
-                "В окне хранения через контекстное меню реализовано удаление пользователя и редактирование.\n" +
-                "экспорт / импорт всей информации о пользователях в текстовый файл.\n" +
-                "экспорт / импорт всей информации о пользователях в *.xml файл.",
+                "Кнопка «Add» добавляет пользователя в окно хранения информации. " +
+                "В окне хранения через контекстное меню реализовано удаление пользователя и редактирование. " +
+                "экспорт / импорт всей информации о пользователях в текстовый файл. " +
+                "экспорт / импорт всей информации о пользователях в *.xml файл.\n\n" +
+                "chmilrv@gmail.com",
                 "About",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
-
-
         }
-
-
-
-
-
-
     }
 }
