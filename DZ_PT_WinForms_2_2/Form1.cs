@@ -14,6 +14,7 @@ namespace DZ_PT_WinForms_2_2
         public Form1()
         {
             InitializeComponent();
+            timer1.Start();
         }
         private void button_AddUser_Click(object sender, EventArgs e)
         {
@@ -77,6 +78,38 @@ namespace DZ_PT_WinForms_2_2
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
         }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            toolStripStatusLabel_DayOfWeek.Text = DateTime.Now.DayOfWeek.ToString();
+            toolStripStatusLabel_Date.Text = DateTime.Now.ToLongDateString();
+            toolStripStatusLabelTime.Text = DateTime.Now.ToLongTimeString();
+        }
+        private string TranslateDayOfWeek(string day)
+        {
+            Dictionary<string, string> DayOfWeek = new Dictionary<string, string>
+            {
+                ["Monday"] = "Понедельник",
+                ["Tuesday"] = "Вторник",
+                ["Wednesday"] = "Среда",
+                ["Thursday"] = "Четверг",
+                ["Friday"] = "Пятница",
+                ["Saturday"] = "Суббота",
+                ["Sunday"] = "Воскресенье"
+            };
+            foreach (KeyValuePair<string, string> days in DayOfWeek)
+            {
+                if (days.Key == DateTime.Now.DayOfWeek.ToString())
+                    day = days.Value;
+            }
+            return day;
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+            toolTip1.ToolTipTitle=TranslateDayOfWeek(DateTime.Now.DayOfWeek.ToString());
+        }
+
+
 
 
         /*

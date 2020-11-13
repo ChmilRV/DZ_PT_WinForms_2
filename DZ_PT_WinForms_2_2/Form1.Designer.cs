@@ -45,9 +45,16 @@
             this.button_AddUser = new System.Windows.Forms.Button();
             this.contextMenuStrip_About = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel_DayOfWeek = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel_Date = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabelTime = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip_EditDelete.SuspendLayout();
             this.groupBox_.SuspendLayout();
             this.contextMenuStrip_About.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox_Surname
@@ -129,19 +136,19 @@
             this.Edit_ToolStripMenuItem,
             this.Delete_ToolStripMenuItem});
             this.contextMenuStrip_EditDelete.Name = "contextMenuStrip_EditDelete";
-            this.contextMenuStrip_EditDelete.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip_EditDelete.Size = new System.Drawing.Size(155, 48);
             // 
             // Edit_ToolStripMenuItem
             // 
             this.Edit_ToolStripMenuItem.Name = "Edit_ToolStripMenuItem";
-            this.Edit_ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.Edit_ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.Edit_ToolStripMenuItem.Text = "Редактировать";
             this.Edit_ToolStripMenuItem.Click += new System.EventHandler(this.Edit_ToolStripMenuItem_Click);
             // 
             // Delete_ToolStripMenuItem
             // 
             this.Delete_ToolStripMenuItem.Name = "Delete_ToolStripMenuItem";
-            this.Delete_ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.Delete_ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.Delete_ToolStripMenuItem.Text = "Удалить";
             this.Delete_ToolStripMenuItem.Click += new System.EventHandler(this.Delete_ToolStripMenuItem_Click);
             // 
@@ -187,12 +194,53 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel_DayOfWeek,
+            this.toolStripStatusLabel_Date,
+            this.toolStripStatusLabelTime});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 419);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(584, 22);
+            this.statusStrip1.TabIndex = 5;
+            this.statusStrip1.Text = "statusStrip1";
+            this.toolTip1.SetToolTip(this.statusStrip1, " ");
+            // 
+            // toolStripStatusLabel_DayOfWeek
+            // 
+            this.toolStripStatusLabel_DayOfWeek.Name = "toolStripStatusLabel_DayOfWeek";
+            this.toolStripStatusLabel_DayOfWeek.Size = new System.Drawing.Size(22, 17);
+            this.toolStripStatusLabel_DayOfWeek.Text = "     ";
+            // 
+            // toolStripStatusLabel_Date
+            // 
+            this.toolStripStatusLabel_Date.Name = "toolStripStatusLabel_Date";
+            this.toolStripStatusLabel_Date.Size = new System.Drawing.Size(25, 17);
+            this.toolStripStatusLabel_Date.Text = "      ";
+            // 
+            // toolStripStatusLabelTime
+            // 
+            this.toolStripStatusLabelTime.Name = "toolStripStatusLabelTime";
+            this.toolStripStatusLabelTime.Size = new System.Drawing.Size(25, 17);
+            this.toolStripStatusLabelTime.Text = "      ";
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 441);
             this.ContextMenuStrip = this.contextMenuStrip_About;
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.button_AddUser);
             this.Controls.Add(this.groupBox_);
             this.Controls.Add(this.listBox_UserInfo);
@@ -204,7 +252,10 @@
             this.groupBox_.ResumeLayout(false);
             this.groupBox_.PerformLayout();
             this.contextMenuStrip_About.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -226,6 +277,12 @@
         private System.Windows.Forms.ToolStripMenuItem Delete_ToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip_About;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_Date;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelTime;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_DayOfWeek;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
