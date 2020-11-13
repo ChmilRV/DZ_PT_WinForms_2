@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +12,12 @@ namespace DZ_PT_WinForms_2_2
 {
     public partial class Form1 : Form
     {
+        string pathTxt = "info.txt";
         public Form1()
         {
             InitializeComponent();
             timer1.Start();
+            
         }
         private void button_AddUser_Click(object sender, EventArgs e)
         {
@@ -27,10 +30,10 @@ namespace DZ_PT_WinForms_2_2
                     listBox_UserInfo.Items.Add(userFullInfo);
                 }
                 else
-                    MessageBox.Show("Strings must be unique");
+                    MessageBox.Show("Запись существует.");
             }
             else
-                MessageBox.Show("Empty string");
+                MessageBox.Show("Пустая строка.");
             textBox_Surname.Text = string.Empty;
             textBox_Name.Text = string.Empty;
             textBox_Email.Text = string.Empty;
@@ -82,7 +85,7 @@ namespace DZ_PT_WinForms_2_2
         {
             toolStripStatusLabel_DayOfWeek.Text = DateTime.Now.DayOfWeek.ToString();
             toolStripStatusLabel_Date.Text = DateTime.Now.ToLongDateString();
-            toolStripStatusLabelTime.Text = DateTime.Now.ToLongTimeString();
+            toolStripStatusLabel_Time.Text = DateTime.Now.ToLongTimeString();
         }
         private string TranslateDayOfWeek(string day)
         {
@@ -110,33 +113,89 @@ namespace DZ_PT_WinForms_2_2
         }
 
 
-
-
-        /*
-         static void WriteFile(string path)
+        private void button_Export_Click(object sender, EventArgs e)
         {
-            using (StreamWriter sw = File.CreateText(path))
+            if (radioButton_ExportTXT.Checked)
             {
-                Console.WriteLine("Enter the data to write to the file:");
-                string writeText = Console.ReadLine();
-                sw.WriteLine(writeText);
-                foreach (var item in writeText)
+                List<object> listTemp = new List<object>();
+                if (listBox_UserInfo.Items.Count != 0)
                 {
-                    sw.Write($"{item} ");
+                    foreach (string item in listBox_UserInfo.Items)
+                        listTemp.Add(item);
                 }
-                Console.WriteLine("\nData recorded!");
+                else
+                    MessageBox.Show("Нет данных для записи.");
+                WriteFileTXT(pathTxt, listTemp);
             }
-        }
-        static string ReadFile(string path)
-        {
-            using (StreamReader sr = File.OpenText(path))
+
+            else if (radioButton_ExportXML.Checked)
             {
-                return sr.ReadToEnd();
+
+
+
+
+
             }
         }
-         
-         
-         */
+        private void button_Import_Click(object sender, EventArgs e)
+        {
+            if (radioButton_ExportTXT.Checked)
+            {
+                List<object> listTemp = ReadFileTXT(pathTxt);
+                if (File.Exists(pathTxt))
+                {
+                    foreach (object item in listTemp)
+                    {
+                        listBox_UserInfo.Items.Add(item);
+                    }
+                    MessageBox.Show("Файл \"" + pathTxt + "\" прочитан."); 
+                }
+            else
+                MessageBox.Show("Файл не найден.");
+            }
+
+            else if (radioButton_ExportXML.Checked)
+            {
+
+
+
+            }
+        }
+
+
+
+
+
+
+        
+         static void WriteFileTXT(string pathTxt, List<object> listTemp)
+         {
+            bool addToFile = false;
+            if (File.Exists(pathTxt))
+                addToFile = true;
+            using (StreamWriter sw = new StreamWriter(pathTxt, addToFile))
+            {
+                foreach (object item in listTemp)
+                {
+                    sw.WriteLine(item);
+                }
+            }
+            MessageBox.Show("Файл \"" + pathTxt + "\" записан.");
+         }
+        static List<object> ReadFileTXT(string pathTxt)
+        {
+            List<object> listTemp = new List<object>();
+            using (StreamReader sr = new StreamReader(pathTxt))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    listTemp.Add(line);
+                }
+            }
+            return listTemp;
+        }
+
 
 
 
