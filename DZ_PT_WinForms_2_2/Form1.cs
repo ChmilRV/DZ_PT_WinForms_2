@@ -52,14 +52,10 @@ namespace DZ_PT_WinForms_2_2
                 if (this.listBox_UserInfo.SelectedItem != null)
                 {
                     String userFullInfo= (String)listBox_UserInfo.SelectedItem;
-
                     textBox_Surname.Text = userFullInfo.Remove(userFullInfo.IndexOf(' '));
-
                     textBox_Name.Text = userFullInfo.Substring(userFullInfo.IndexOf(' ') + 1, userFullInfo.IndexOf(',') - userFullInfo.IndexOf(' ') - 1);
-
-                    //textBox_Email.Text =;
-
-                    //textBox_PhoneNumber =;
+                    textBox_Email.Text = userFullInfo.Substring(userFullInfo.IndexOf(',') + 2, userFullInfo.LastIndexOf(',') - userFullInfo.IndexOf(',') - 2);
+                    textBox_PhoneNumber.Text =userFullInfo.Substring(userFullInfo.LastIndexOf(',') + 2);
                     listBox_UserInfo.Items.Remove(userFullInfo);
 
 
