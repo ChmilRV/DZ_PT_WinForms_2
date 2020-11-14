@@ -50,14 +50,14 @@
             this.toolStripStatusLabel_DayOfWeek = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_Date = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_Time = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel_Space = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_mail = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel_message = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox_Export = new System.Windows.Forms.GroupBox();
             this.button_Import = new System.Windows.Forms.Button();
-            this.radioButton_ExportXML = new System.Windows.Forms.RadioButton();
+            this.radioButton_XML = new System.Windows.Forms.RadioButton();
             this.button_Export = new System.Windows.Forms.Button();
-            this.radioButton_ExportTXT = new System.Windows.Forms.RadioButton();
+            this.radioButton_TXT = new System.Windows.Forms.RadioButton();
             this.contextMenuStrip_EditDelete.SuspendLayout();
             this.groupBox_.SuspendLayout();
             this.contextMenuStrip_About.SuspendLayout();
@@ -215,8 +215,8 @@
             this.toolStripStatusLabel_DayOfWeek,
             this.toolStripStatusLabel_Date,
             this.toolStripStatusLabel_Time,
-            this.toolStripStatusLabel_Space,
-            this.toolStripStatusLabel_mail});
+            this.toolStripStatusLabel_mail,
+            this.toolStripStatusLabel_message});
             this.statusStrip1.Location = new System.Drawing.Point(0, 269);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -241,19 +241,18 @@
             this.toolStripStatusLabel_Time.Name = "toolStripStatusLabel_Time";
             this.toolStripStatusLabel_Time.Size = new System.Drawing.Size(0, 17);
             // 
-            // toolStripStatusLabel_Space
-            // 
-            this.toolStripStatusLabel_Space.Name = "toolStripStatusLabel_Space";
-            this.toolStripStatusLabel_Space.Size = new System.Drawing.Size(253, 17);
-            this.toolStripStatusLabel_Space.Text = "                                                                                 " +
-    " ";
-            // 
             // toolStripStatusLabel_mail
             // 
             this.toolStripStatusLabel_mail.IsLink = true;
             this.toolStripStatusLabel_mail.Name = "toolStripStatusLabel_mail";
             this.toolStripStatusLabel_mail.Size = new System.Drawing.Size(115, 17);
             this.toolStripStatusLabel_mail.Text = "chmilrv@gmail.com";
+            // 
+            // toolStripStatusLabel_message
+            // 
+            this.toolStripStatusLabel_message.Name = "toolStripStatusLabel_message";
+            this.toolStripStatusLabel_message.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel_message.Text = " ";
             // 
             // toolTip1
             // 
@@ -262,9 +261,9 @@
             // groupBox_Export
             // 
             this.groupBox_Export.Controls.Add(this.button_Import);
-            this.groupBox_Export.Controls.Add(this.radioButton_ExportXML);
+            this.groupBox_Export.Controls.Add(this.radioButton_XML);
             this.groupBox_Export.Controls.Add(this.button_Export);
-            this.groupBox_Export.Controls.Add(this.radioButton_ExportTXT);
+            this.groupBox_Export.Controls.Add(this.radioButton_TXT);
             this.groupBox_Export.Location = new System.Drawing.Point(249, 191);
             this.groupBox_Export.Name = "groupBox_Export";
             this.groupBox_Export.Size = new System.Drawing.Size(323, 67);
@@ -282,16 +281,16 @@
             this.button_Import.UseVisualStyleBackColor = true;
             this.button_Import.Click += new System.EventHandler(this.button_Import_Click);
             // 
-            // radioButton_ExportXML
+            // radioButton_XML
             // 
-            this.radioButton_ExportXML.AutoSize = true;
-            this.radioButton_ExportXML.Location = new System.Drawing.Point(17, 38);
-            this.radioButton_ExportXML.Name = "radioButton_ExportXML";
-            this.radioButton_ExportXML.Size = new System.Drawing.Size(40, 17);
-            this.radioButton_ExportXML.TabIndex = 1;
-            this.radioButton_ExportXML.TabStop = true;
-            this.radioButton_ExportXML.Text = "xml";
-            this.radioButton_ExportXML.UseVisualStyleBackColor = true;
+            this.radioButton_XML.AutoSize = true;
+            this.radioButton_XML.Location = new System.Drawing.Point(17, 38);
+            this.radioButton_XML.Name = "radioButton_XML";
+            this.radioButton_XML.Size = new System.Drawing.Size(40, 17);
+            this.radioButton_XML.TabIndex = 1;
+            this.radioButton_XML.TabStop = true;
+            this.radioButton_XML.Text = "xml";
+            this.radioButton_XML.UseVisualStyleBackColor = true;
             // 
             // button_Export
             // 
@@ -304,17 +303,17 @@
             this.button_Export.UseVisualStyleBackColor = true;
             this.button_Export.Click += new System.EventHandler(this.button_Export_Click);
             // 
-            // radioButton_ExportTXT
+            // radioButton_TXT
             // 
-            this.radioButton_ExportTXT.AutoSize = true;
-            this.radioButton_ExportTXT.Checked = true;
-            this.radioButton_ExportTXT.Location = new System.Drawing.Point(17, 13);
-            this.radioButton_ExportTXT.Name = "radioButton_ExportTXT";
-            this.radioButton_ExportTXT.Size = new System.Drawing.Size(36, 17);
-            this.radioButton_ExportTXT.TabIndex = 0;
-            this.radioButton_ExportTXT.TabStop = true;
-            this.radioButton_ExportTXT.Text = "txt";
-            this.radioButton_ExportTXT.UseVisualStyleBackColor = true;
+            this.radioButton_TXT.AutoSize = true;
+            this.radioButton_TXT.Checked = true;
+            this.radioButton_TXT.Location = new System.Drawing.Point(17, 13);
+            this.radioButton_TXT.Name = "radioButton_TXT";
+            this.radioButton_TXT.Size = new System.Drawing.Size(36, 17);
+            this.radioButton_TXT.TabIndex = 0;
+            this.radioButton_TXT.TabStop = true;
+            this.radioButton_TXT.Text = "txt";
+            this.radioButton_TXT.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -369,12 +368,12 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_DayOfWeek;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_mail;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_Space;
         private System.Windows.Forms.GroupBox groupBox_Export;
-        private System.Windows.Forms.RadioButton radioButton_ExportXML;
-        private System.Windows.Forms.RadioButton radioButton_ExportTXT;
+        private System.Windows.Forms.RadioButton radioButton_XML;
+        private System.Windows.Forms.RadioButton radioButton_TXT;
         private System.Windows.Forms.Button button_Export;
         private System.Windows.Forms.Button button_Import;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_message;
     }
 }
 

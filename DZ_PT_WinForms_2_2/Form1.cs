@@ -8,11 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
+
 namespace DZ_PT_WinForms_2_2
 {
     public partial class Form1 : Form
     {
-        string pathTxt = "info.txt";
+        string path_txt = "info.txt";
+        string path_xml = "info.xml";
         public Form1()
         {
             InitializeComponent();
@@ -30,10 +33,14 @@ namespace DZ_PT_WinForms_2_2
                     listBox_UserInfo.Items.Add(userFullInfo);
                 }
                 else
+                {
                     MessageBox.Show("Запись существует.");
+                }
             }
             else
+            {
                 MessageBox.Show("Пустая строка.");
+            }
             textBox_Surname.Text = string.Empty;
             textBox_Name.Text = string.Empty;
             textBox_Email.Text = string.Empty;
@@ -106,68 +113,66 @@ namespace DZ_PT_WinForms_2_2
             }
             return day;
         }
-
         private void toolTip1_Popup(object sender, PopupEventArgs e)
         {
             toolTip1.ToolTipTitle=TranslateDayOfWeek(DateTime.Now.DayOfWeek.ToString());
         }
-
-
         private void button_Export_Click(object sender, EventArgs e)
         {
-            if (radioButton_ExportTXT.Checked)
+            List<object> listTemp = new List<object>();
+            if (listBox_UserInfo.Items.Count != 0)
             {
-                List<object> listTemp = new List<object>();
-                if (listBox_UserInfo.Items.Count != 0)
-                {
-                    foreach (string item in listBox_UserInfo.Items)
-                        listTemp.Add(item);
-                }
-                else
-                    MessageBox.Show("Нет данных для записи.");
-                WriteFileTXT(pathTxt, listTemp);
+                foreach (string item in listBox_UserInfo.Items)
+                    listTemp.Add(item);
             }
-
-            else if (radioButton_ExportXML.Checked)
+            else
             {
-
-
-
-
-
+                MessageBox.Show("Нет данных для записи.");
+            }
+            if (radioButton_TXT.Checked)
+            {
+                WriteFileTXT(path_txt, listTemp);
+            }
+            else if (radioButton_XML.Checked)
+            {
+                WriteFileXML(path_xml, listTemp);
             }
         }
         private void button_Import_Click(object sender, EventArgs e)
         {
-            if (radioButton_ExportTXT.Checked)
+            if (radioButton_TXT.Checked)
             {
-                List<object> listTemp = ReadFileTXT(pathTxt);
-                if (File.Exists(pathTxt))
+                if (File.Exists(path_txt))
                 {
+                    List<object> listTemp = ReadFileTXT(path_txt);
                     foreach (object item in listTemp)
                     {
                         listBox_UserInfo.Items.Add(item);
                     }
-                    MessageBox.Show("Файл \"" + pathTxt + "\" прочитан."); 
+                    MessageBox.Show("Файл \"" + path_txt + "\" прочитан."); 
                 }
-            else
-                MessageBox.Show("Файл не найден.");
+                else
+                {
+                    MessageBox.Show("Файл не найден.");
+                }
             }
-
-            else if (radioButton_ExportXML.Checked)
+            else if (radioButton_XML.Checked)
             {
-
-
-
+                if (File.Exists(path_xml))
+                {
+                    List<object> listTemp = ReadFileXML(path_xml);
+                    foreach (object item in listTemp)
+                    {
+                        listBox_UserInfo.Items.Add(item);
+                    }
+                    MessageBox.Show("Файл \"" + path_xml + "\" прочитан.");
+                }
+                else
+                {
+                    MessageBox.Show("Файл не найден.");
+                }
             }
         }
-
-
-
-
-
-
-        
          static void WriteFileTXT(string pathTxt, List<object> listTemp)
          {
             bool addToFile = false;
@@ -182,10 +187,10 @@ namespace DZ_PT_WinForms_2_2
             }
             MessageBox.Show("Файл \"" + pathTxt + "\" записан.");
          }
-        static List<object> ReadFileTXT(string pathTxt)
+        static List<object> ReadFileTXT(string path_txt)
         {
             List<object> listTemp = new List<object>();
-            using (StreamReader sr = new StreamReader(pathTxt))
+            using (StreamReader sr = new StreamReader(path_txt))
             {
                 string line;
                 while ((line = sr.ReadLine()) != null)
@@ -195,11 +200,24 @@ namespace DZ_PT_WinForms_2_2
             }
             return listTemp;
         }
-
-
-
-
-
-
+        static void WriteFileXML(string path_xml, List<object> listTemp)
+        {
+            XmlSerializer formatter = new XmlSerializer(typeof(List<object>));
+            using (FileStream fs = new FileStream(path_xml, FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, listTemp);
+            }
+            MessageBox.Show("Файл \"" + path_xml + "\" записан.");
+        }
+        static List<object> ReadFileXML(string path_xml)
+        {
+            List<object> listTemp = new List<object>();
+            XmlSerializer formatter = new XmlSerializer(typeof(List<object>));
+            using (FileStream fs = new FileStream(path_xml, FileMode.Open))
+            {
+                listTemp = (List<object>)formatter.Deserialize(fs);
+            }
+            return listTemp;
+        }
     }
 }
