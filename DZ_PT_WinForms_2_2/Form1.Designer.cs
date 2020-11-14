@@ -51,13 +51,13 @@
             this.toolStripStatusLabel_Date = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_Time = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel_mail = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel_message = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox_Export = new System.Windows.Forms.GroupBox();
             this.button_Import = new System.Windows.Forms.Button();
             this.radioButton_XML = new System.Windows.Forms.RadioButton();
             this.button_Export = new System.Windows.Forms.Button();
             this.radioButton_TXT = new System.Windows.Forms.RadioButton();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.contextMenuStrip_EditDelete.SuspendLayout();
             this.groupBox_.SuspendLayout();
             this.contextMenuStrip_About.SuspendLayout();
@@ -216,7 +216,7 @@
             this.toolStripStatusLabel_Date,
             this.toolStripStatusLabel_Time,
             this.toolStripStatusLabel_mail,
-            this.toolStripStatusLabel_message});
+            this.toolStripProgressBar1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 269);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -247,12 +247,6 @@
             this.toolStripStatusLabel_mail.Name = "toolStripStatusLabel_mail";
             this.toolStripStatusLabel_mail.Size = new System.Drawing.Size(115, 17);
             this.toolStripStatusLabel_mail.Text = "chmilrv@gmail.com";
-            // 
-            // toolStripStatusLabel_message
-            // 
-            this.toolStripStatusLabel_message.Name = "toolStripStatusLabel_message";
-            this.toolStripStatusLabel_message.Size = new System.Drawing.Size(10, 17);
-            this.toolStripStatusLabel_message.Text = " ";
             // 
             // toolTip1
             // 
@@ -315,6 +309,11 @@
             this.radioButton_TXT.Text = "txt";
             this.radioButton_TXT.UseVisualStyleBackColor = true;
             // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -373,7 +372,7 @@
         private System.Windows.Forms.RadioButton radioButton_TXT;
         private System.Windows.Forms.Button button_Export;
         private System.Windows.Forms.Button button_Import;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel_message;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
     }
 }
 
